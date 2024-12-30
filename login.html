@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Eventa</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('background.png') no-repeat center center/cover;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 {
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .btn-login {
+            background-color: #27ae60;
+            padding: 15px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .btn-login:hover {
+            background-color: #2ecc71;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo">
+            <img src="2.png" alt="Eventa Logo">
+        </div>
+        <h1>Login to Eventa</h1>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Eventa. All Rights Reserved.</p>
+    </div>
+
+    <script>
+        // Simulasi data login (username dan password)
+        const correctUsername = "arya";
+        const correctPassword = "arya123";
+
+        // Fungsi untuk login dan validasi
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah form submit secara default
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validasi username dan password
+            if (username === correctUsername && password === correctPassword) {
+                // Simpan status login ke localStorage
+                localStorage.setItem("isLoggedIn", "true");
+
+                // Redirect ke halaman utama setelah login sukses
+                window.location.href = "file:///C:/Users/Arya/Documents/kuliah/semester%205/PIPL/website/eventa.html"; // Ganti "index.html" dengan halaman utama Anda
+            } else {
+                alert("Username atau password salah.");
+            }
+        });
+
+        // Cek apakah pengguna sudah login saat membuka halaman login
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            window.location.href = "index.html"; // Redirect jika sudah login
+        }
+    </script>
+</body>
+</html>
